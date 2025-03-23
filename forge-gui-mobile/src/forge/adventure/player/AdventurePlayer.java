@@ -24,6 +24,8 @@ import forge.deck.DeckProxy;
 import forge.deck.DeckSection;
 import forge.item.InventoryItem;
 import forge.item.PaperCard;
+import forge.localinstance.properties.ForgePreferences;
+import forge.model.FModel;
 import forge.sound.SoundEffectType;
 import forge.sound.SoundSystem;
 import forge.util.ItemPool;
@@ -35,7 +37,7 @@ import java.util.*;
  * Class that represents the player (not the player sprite)
  */
 public class AdventurePlayer implements Serializable, SaveFileContent {
-    public static final int NUMBER_OF_DECKS = 10;
+    public static final int NUMBER_OF_DECKS = FModel.getPreferences().getPrefInt(ForgePreferences.FPref.ADVENTURE_MAX_DECKS);
     // Player profile data.
     private String name;
     private int heroRace;

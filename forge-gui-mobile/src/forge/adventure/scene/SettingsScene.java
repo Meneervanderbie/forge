@@ -235,6 +235,7 @@ public class SettingsScene extends UIScene {
             }
         });
         addCheckBox(Forge.getLocalizer().getMessage("lblPromptAutoSell"), ForgePreferences.FPref.PROMPT_FOR_AUTOSELL);
+        addSettingSlider(Forge.getLocalizer().getMessage("lblMaxDecks"), ForgePreferences.FPref.ADVENTURE_MAX_DECKS, 3, 100);
         addCheckBox(Forge.getLocalizer().getMessage("lblCardName"), ForgePreferences.FPref.UI_OVERLAY_CARD_NAME);
         addSettingSlider(Forge.getLocalizer().getMessage("cbAdjustMusicVolume"), ForgePreferences.FPref.UI_VOL_MUSIC, 0, 100);
         addSettingSlider(Forge.getLocalizer().getMessage("cbAdjustSoundsVolume"), ForgePreferences.FPref.UI_VOL_SOUNDS, 0, 100);
@@ -330,6 +331,7 @@ public class SettingsScene extends UIScene {
             public void changed(ChangeEvent event, Actor actor) {
                 FModel.getPreferences().setPref(pref, String.valueOf((int) ((Slider) actor).getValue()));
                 FModel.getPreferences().save();
+                System.out.println(FModel.getPreferences().getPrefInt(ForgePreferences.FPref.ADVENTURE_MAX_DECKS));
                 if (ForgePreferences.FPref.UI_VOL_MUSIC.equals(pref))
                     SoundSystem.instance.refreshVolume();
             }
