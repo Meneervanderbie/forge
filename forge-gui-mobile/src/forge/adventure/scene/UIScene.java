@@ -331,7 +331,7 @@ public class UIScene extends Scene {
                     pressedButton.fire(eventTouchUp());
             }
         }
-        if (KeyBinding.Use.isPressed(keycode) && !textboxOpen) {
+        if (KeyBinding.Use.isPressed(keycode)) {
             if (getSelected() != null)
                 getSelected().onPressUp();//order is important, this might remove a dialog
 
